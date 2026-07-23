@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriConnect Summit 2026 - Programme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Navigation principale">
+            <a href="index.html" class="navbar-brand">
+                AfriConnect <span>Summit</span> 2026
+            </a>
+            <ul class="navbar-links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Accueil</a></li>
+                <li role="none"><a href="programme.html" class="active" role="menuitem">Programme</a></li>
+                <li role="none"><a href="intervenants.html" role="menuitem">Intervenants</a></li>
+                <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                <li role="none">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le thème clair/sombre">
+                        🌙
+                    </button>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu mobile" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+        <!-- HERO INTERNE -->
+        <section class="page-hero" aria-label="Bannière du programme">
+            <div class="container">
+                <p class="breadcrumb"><a href="index.html">Accueil</a> &gt; Programme</p>
+                <h1>Le <span>programme</span> 2026</h1>
+                <p>3 jours pour transformer l'Afrique par la technologie</p>
+            </div>
+        </section>
+
+        <!-- ONGLETS -->
+        <section aria-label="Programme par jour">
+            <div class="container">
+                <div class="tabs" role="tablist">
+                    <button class="tab-btn active" data-day="day1" role="tab">📅 Jour 1 - 15 Octobre</button>
+                    <button class="tab-btn" data-day="day2" role="tab">📅 Jour 2 - 16 Octobre</button>
+                    <button class="tab-btn" data-day="day3" role="tab">📅 Jour 3 - 17 Octobre</button>
+                </div>
+
+                <!-- Jour 1 -->
+                <div class="tab-content active" id="day1" role="tabpanel">
+                    <h3 style="text-align:center; margin-bottom: var(--spacing-lg);">Jour 1 - Innovation & Technologies</h3>
+                    <table class="schedule-table">
+                        <thead><tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr></thead>
+                        <tbody>
+                            <tr><td>09:00 - 09:30</td><td>Ouverture</td><td>Comité</td><td>Grande salle</td></tr>
+                            <tr><td>09:45 - 10:45</td><td>Keynote IA</td><td>Dr. Amina Diallo</td><td>Grande salle</td></tr>
+                            <tr><td>11:00 - 12:30</td><td>Atelier ML</td><td>Team DataLab</td><td>Salle A</td></tr>
+                            <tr><td>14:00 - 15:30</td><td>Panel Fintech</td><td>Experts</td><td>Grande salle</td></tr>
+                            <tr><td>16:00 - 17:30</td><td>Networking</td><td>Tous</td><td>Espace VIP</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Jour 2 -->
+                <div class="tab-content" id="day2" role="tabpanel">
+                    <h3 style="text-align:center; margin-bottom: var(--spacing-lg);">Jour 2 - Business & Entrepreneuriat</h3>
+                    <table class="schedule-table">
+                        <thead><tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr></thead>
+                        <tbody>
+                            <tr><td>09:00 - 10:00</td><td>Keynote Business</td><td>Jean-Pierre Kouadio</td><td>Grande salle</td></tr>
+                            <tr><td>10:15 - 11:45</td><td>Atelier Levée de fonds</td><td>David Okonkwo</td><td>Salle B</td></tr>
+                            <tr><td>12:00 - 13:30</td><td>Panel Startups</td><td>Fondateurs</td><td>Grande salle</td></tr>
+                            <tr><td>14:30 - 16:00</td><td>Pitch Competition</td><td>Startups</td><td>Salle C</td></tr>
+                            <tr><td>16:30 - 18:00</td><td>Réunion investisseurs</td><td>Sur invitation</td><td>Espace VIP</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Jour 3 -->
+                <div class="tab-content" id="day3" role="tabpanel">
+                    <h3 style="text-align:center; margin-bottom: var(--spacing-lg);">Jour 3 - Design & Impact Social</h3>
+                    <table class="schedule-table">
+                        <thead><tr><th>Heure</th><th>Session</th><th>Intervenant</th><th>Salle</th></tr></thead>
+                        <tbody>
+                            <tr><td>09:00 - 10:00</td><td>Keynote Design</td><td>Fatima El Mansouri</td><td>Grande salle</td></tr>
+                            <tr><td>10:15 - 12:00</td><td>Atelier UX</td><td>Studio Design</td><td>Salle A</td></tr>
+                            <tr><td>13:00 - 14:30</td><td>Panel Tech Social</td><td>ONG</td><td>Grande salle</td></tr>
+                            <tr><td>15:00 - 16:30</td><td>Hackathon</td><td>Équipes</td><td>Salle D</td></tr>
+                            <tr><td>17:00 - 18:30</td><td>Clôture</td><td>Comité</td><td>Grande salle</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- THEMATIQUES -->
+                <div style="margin-top: var(--spacing-xxl);">
+                    <div class="section-title">
+                        <h2>Les <span>thématiques</span> 2026</h2>
+                        <p>4 piliers pour bâtir l'Afrique de demain</p>
+                    </div>
+                    <div class="themes-grid">
+                        <div class="theme-card fade-in-left">
+                            <div class="icon">🤖</div>
+                            <h3>IA & Technologies</h3>
+                            <p>Intelligence artificielle, blockchain, IoT et cybersécurité.</p>
+                        </div>
+                        <div class="theme-card zoom-in">
+                            <div class="icon">💼</div>
+                            <h3>Business & Finance</h3>
+                            <p>Entrepreneuriat, investissement, fintech et modèles innovants.</p>
+                        </div>
+                        <div class="theme-card fade-in-right">
+                            <div class="icon">🎨</div>
+                            <h3>Design & Créativité</h3>
+                            <p>UI/UX, design thinking, branding et expérience utilisateur.</p>
+                        </div>
+                        <div class="theme-card zoom-in">
+                            <div class="icon">📊</div>
+                            <h3>Data & Analyse</h3>
+                            <p>Big data, data science, analytics et prise de décision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>AfriConnect Summit</h4>
+                    <p>Le rendez-vous incontournable de l'innovation technologique.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="programme.html">Programme</a></li>
+                        <li><a href="intervenants.html">Intervenants</a></li>
+                        <li><a href="contact.html">Inscription</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><i class="bi bi-geo-alt"></i> Dakar, Sénégal</li>
+                        <li><i class="bi bi-calendar"></i> 15-17 Octobre 2026</li>
+                        <li><i class="bi bi-envelope"></i> contact@africonnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> AfriConnect Summit. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-chevron-up"></i></button>
+    <script src="js/main.js"></script>
+</body>
+</html>
