@@ -123,3 +123,104 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+    // ========================================
+    // 7. INTERSECTION OBSERVER - ANIMATIONS
+    // ========================================
+    const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .zoom-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(el => observer.observe(el));
+
+    // ========================================
+    // 8. COMPTEURS ANIMÉS AU SCROLL
+    // ========================================
+    const counters = document.querySelectorAll('.stat-item .number');
+    let countersAnimated = false;
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !countersAnimated) {
+                countersAnimated = true;
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const value = Math.floor(progress * target);
+                        counter.textContent = value;
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                    requestAnimationFrame(updateCounter);
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    const statsSection = document.querySelector('.stats-grid');
+    if (statsSection) {
+        counterObserver.observe(statsSection);
+    }
+
+    // ========================================
+    // 9. ONGLETS DU PROGRAMME
+    // ========================================
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            const target = this.getAttribute('data-day');
+            const targetContent = document.getElementById(target);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+
+    // ========================================
+    // 10. FILTRAGE DYNAMIQUE DES INTERVENANTS
+    // ========================================
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const speakerCards = document.querySelectorAll('.speaker-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            speakerCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    card.classList.remove('visible');
+                    setTimeout(() => card.classList.add('visible'), 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
