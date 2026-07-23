@@ -224,3 +224,89 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+        // ========================================
+    // 11. VALIDATION DU FORMULAIRE
+    // ========================================
+    const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            
+            inputs.forEach(input => {
+                const formGroup = input.closest('.form-group');
+                const errorMsg = formGroup.querySelector('.error-message');
+                
+                formGroup.classList.remove('error', 'success');
+                
+                let value = input.value.trim();
+                
+                if (input.type === 'email' && value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        isValid = false;
+                        formGroup.classList.add('error');
+                        if (errorMsg) errorMsg.textContent = 'Veuillez entrer un email valide';
+                    } else {
+                        formGroup.classList.add('success');
+                    }
+                }
+                else if (input.id === 'phone' && value) {
+                    const phoneRegex = /^[0-9]{8,}$/;
+                    if (!phoneRegex.test(value.replace(/[^0-9]/g, ''))) {
+                        isValid = false;
+                        formGroup.classList.add('error');
+                        if (errorMsg) errorMsg.textContent = 'Téléphone minimum 8 chiffres';
+                    } else {
+                        formGroup.classList.add('success');
+                    }
+                }
+                else if (input.tagName === 'TEXTAREA' && value) {
+                    if (value.length < 20) {
+                        isValid = false;
+                        formGroup.classList.add('error');
+                        if (errorMsg) errorMsg.textContent = 'Message minimum 20 caractères';
+                    } else {
+                        formGroup.classList.add('success');
+                    }
+                }
+                else if (!value) {
+                    isValid = false;
+                    formGroup.classList.add('error');
+                    if (errorMsg) errorMsg.textContent = 'Ce champ est requis';
+                } else {
+                    formGroup.classList.add('success');
+                }
+            });
+            
+            if (isValid) {
+                successMessage.classList.add('show');
+                form.reset();
+                document.querySelectorAll('.form-group').forEach(g => g.classList.remove('success'));
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            } else {
+                const firstError = document.querySelector('.form-group.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+        
+        form.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                const formGroup = this.closest('.form-group');
+                if (formGroup.classList.contains('error') || formGroup.classList.contains('success')) {
+                    formGroup.classList.remove('error', 'success');
+                }
+            });
+        });
+    }
